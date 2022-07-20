@@ -23,8 +23,9 @@ const RegisterUser = () => {
     }
 
 
-return(<div>
-          <h1>Register your date!!!</h1>
+return(<div className={styles.register} >
+          <p>Register your date!!!</p>
+          <h2>Crie seus primeiros blogs!</h2>
           <form onSubmit={''}>
            
            <label> <span> Seu nome. </span> 
@@ -59,7 +60,7 @@ return(<div>
             />
            </label>
            
-           <label> Confirma Senha
+           <label> <span> Confirmar senha.</span> 
             <input type="text" 
             name='confirm'
             placeholder='Confirme sua senha, por favor.' 
