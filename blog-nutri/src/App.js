@@ -8,6 +8,7 @@ import Navbar from './Component/Navbar';
 import { AuthProviderContext } from './Contextmanage/authcontext';
 import { useAuth } from './hoock/useAuthTentication';
 import CreateLogin from './Login/login';
+import CreatePost from './pages/CreatePost/createpost';
 import Dashboard from './pages/dashbords/dashboards';
 import Home from './pages/Home/Home';
 import Sobre from './pages/Sobre/sobre';
@@ -46,7 +47,13 @@ function App() {
           <Route path='' element={''}  />
            
           <Route path='/login' element={<CreateLogin/>}  />
-          <Route path='/register' element={!user ?  <RegisterUser/> : <Navigate to='/' /> } />
+          <Route path='/register' element={!user ?  <RegisterUser/> : <Navigate to='/'  /> } />
+          
+          
+          
+          
+          <Route path='/post/create'  element={ user ? <CreatePost/> : <Navigate to='/login' />   }  />
+          
           <Route/>
         
         
