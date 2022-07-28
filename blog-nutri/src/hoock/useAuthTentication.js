@@ -64,11 +64,44 @@ export const useAuth  = () => {
    }
 
 
-   // this verify function !!
+  
+
+  
+   // sing in about system
+   const login = async(data) => {
+    checkMemoryleak()  
+    setLoading(true)
+    setError(false) 
+    console.log('Usuário entrou no sistema!!')
+    try {
+       
+      await signInWithEmailAndPassword(auth,data.email,
+      data.password)
+      setLoading(false)    
+    } catch (error) {
+       let systemErrorUser;
+       if(error.message.includes("user-not-found")){
+          systemErrorUser = "Usuário não encontrado!"
+       }else if(error.message.includes('wrong-password')){
+         systemErrorUser = "Senha não confere!"
+       }else {
+        systemErrorUser = "Tente mais tarde!"
+       }
+       setError(systemErrorUser)
+       setLoading(false)
+    
+    }
+
+   }
+
+
+
+
+// this verify function !!
    useEffect(() => {
     return () =>  checkMemoryleak(true)
    },[])
 
 
- return {auth,CreateUser, error, loading}
+ return {auth,CreateUser, error, loading, login}
 }
