@@ -6,17 +6,24 @@ const CreateLogin = () => {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const [error, setErorr] = useState('')
-    const{loading,error:authError} = useAuth()  
+    const{login,error:authError, loading} = useAuth()  
     
-  const HandSubmt = (e) => {
+  const HandSubmt = async (e) => {
    e.preventDefault()
-  } 
+   const user ={
+    name,
+    password
+   }
+   
+  const res = await login(user)
+   
+   } 
 
   useEffect(() => {
     if(authError){
     setErorr(true)
     }
-  },[])
+  },[authError])
 
 
   return( <div classNameName='d-flex flex-collumn' >
@@ -42,10 +49,10 @@ const CreateLogin = () => {
     <div className="form-text">Não compartilhe sua senha com Ninguém.</div>
     </div>
       
-     {error && <p> {error}</p> }
      {!loading  && <button className="btn btn-primary">Entrar</button> }
-     {loading && (<p>Carregando ....</p>)} 
+     {loading && (<button className='btn btn-primary' > Aguarde ....</button>)} 
         
+     {error && <p> {error}</p> }
 
     </form>
   </div>)
