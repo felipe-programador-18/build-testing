@@ -101,7 +101,7 @@ return(<div className='text-center' >
 
            <div className='mb-3 collumn' >  
            <label className='col-sm-2 col-form-label' > <span> Confirmar senha.</span> 
-            <div  className='col-xl-10'> 
+            <div  className='col-sm-10'> 
             <input type="text" 
             name='confirm'
             placeholder='Confirme sua senha, por favor.' 
@@ -114,7 +114,7 @@ return(<div className='text-center' >
            </label>
            </div>
 
-           {!loading && <button className='btn' >Cadastrar</button>}
+           {!loading && <button className='btn btn-outline-dark' >Cadastrar</button>}
 
           {loading && <button  className='btn' disabled >Aguarde......</button>} 
 
