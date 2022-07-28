@@ -1,7 +1,5 @@
-.register{
-    text-align: center;
-        
-}
-.register p {
-    color:#aaa;
-}
+ input{
+    width: 70px;
+    height: 40px;
+    color: cornflowerblue;
+ }
