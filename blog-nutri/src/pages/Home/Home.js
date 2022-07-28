@@ -9,7 +9,7 @@ const Home = () => {
     }
 
     return( <div className={styles.home} >
-        <h3 >Saúde em dia, um blog pelo quais eu fiz, na ideia de que todo programador dev praticar exercício fisico.</h3>
+        <h3 >Blog sobre saúde.</h3>
        
         <form onSubmit={HandSubmit} className={styles.search_form} >
          <label>
