@@ -12,27 +12,27 @@ const Navbar  = () => {
     
     <ul className={styles.links_list} >
        <li>
-        <NavLink to='/' >Home</NavLink>
+        <NavLink to='/' className={({isActive}) => (isActive ? styles.active : "" ) }>Home</NavLink>
        </li>
       
        <li>
-        <NavLink to='/' > Entrar</NavLink>
+        <NavLink to='/' className={({isActive}) => (isActive ? styles.active : '')}  > Entrar</NavLink>
        </li>
       
        <li>
-        <NavLink to='/register' >Registrar</NavLink>
+        <NavLink to='/register' className={({isActive}) => (isActive ? styles.active :'') }  >Registrar</NavLink>
        </li>
       
        <li>
-        <NavLink to='/' >Novo Post</NavLink>
+        <NavLink to='/' className={({isActive}) => (isActive ? styles.active: '')}  >Novo Post</NavLink>
        </li>
   
        <li>
-        <NavLink to='/' >Dashboard</NavLink>
+        <NavLink to='/dashboard' className={({isActive}) => (isActive ? styles.active: '')}   >Dashboard</NavLink>
        </li>
   
        <li>
-        <NavLink to='/about' >Sobre</NavLink>
+        <NavLink to='/about' className={({isActive}) => (isActive ? styles.active: '')} >Sobre</NavLink>
        </li>
 
        <li>
