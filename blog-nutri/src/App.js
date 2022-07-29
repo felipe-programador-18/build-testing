@@ -46,10 +46,11 @@ function App() {
           
           <Route path='' element={''}  />
            
-          <Route path='/login' element={<CreateLogin/>}  />
+          <Route path='/login' element={ !user ?  <CreateLogin/> : <Navigate to='/' /> }  />
+          
           <Route path='/register' element={!user ?  <RegisterUser/> : <Navigate to='/'  /> } />
           
-          
+          <Route path="/dashboard" element={ user ?  <Dashboard/> : <Navigate to='/' />}  />
           
           
           <Route path='/post/create'  element={ user ? <CreatePost/> : <Navigate to='/login' />   }  />
