@@ -5,9 +5,9 @@ import { useAuth } from '../hoock/useAuthTentication'
 
 
 const RegisterUser = () => {
-    const [displayName, setDisplayName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [displayName, setDisplayName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     const [confirm, setConfirm] = useState("") 
     const [error, setError] = useState("")
     
@@ -36,7 +36,7 @@ const RegisterUser = () => {
      if(authError){
       setError(authError)
      }
-    },[])
+    },[authError])
 
 return(<div className='text-center' >
           <h2 >Crie seus primeiros blogs!</h2>
@@ -46,7 +46,7 @@ return(<div className='text-center' >
           <form onSubmit={HandSubmit}>
            
            <div className='mb-3 collumn text-center' >  
-           <label  className='col-sm-2 col-form-label' > 
+           <label  className='col-sm-2 col-form-label bg-primary' > 
             <div className='col-sm-10' >
               <span>  Nome. </span> 
               <input type="text"
