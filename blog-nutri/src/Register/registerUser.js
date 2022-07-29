@@ -16,7 +16,6 @@ const RegisterUser = () => {
     
     const HandSubmit = async (e) => {
      e.preventDefault()
-
      setError("")
 
      const user ={
@@ -24,7 +23,7 @@ const RegisterUser = () => {
         email,
         password
      }
-     if(password !== setConfirm  ){
+     if(password !== confirm ){
         setError('As senhas precisam ser iguais.')
      }
 
@@ -35,7 +34,7 @@ const RegisterUser = () => {
     
     useEffect(() => {
      if(authError){
-      setError(true)
+      setError(authError)
      }
     },[])
 
@@ -47,7 +46,7 @@ return(<div className='text-center' >
           <form onSubmit={HandSubmit}>
            
            <div className='mb-3 collumn text-center' >  
-           <label   className='col-sm-2 col-form-label' > 
+           <label  className='col-sm-2 col-form-label' > 
             <div className='col-sm-10' >
               <span>  Nome. </span> 
               <input type="text"
@@ -56,7 +55,7 @@ return(<div className='text-center' >
                required 
                placeholder="Nome do usuário."
                onChange={(e) =>  setDisplayName(e.target.value) }
-               readonly className="form-control-plaintext" 
+               className="form-control-plaintext"
                />
              </div>
            </label>
@@ -69,13 +68,13 @@ return(<div className='text-center' >
             
             <div className='col-sm-10' >  
             <input 
-             type="text" 
+             type="email" 
              name='email' 
              value={email}
              placeholder="email@example.com"
              required
              onChange={(e) => setEmail(e.target.value)  }
-             readonly className="form-control-plaintext" 
+             className="form-control-plaintext"
               />
              </div> 
            </label>
@@ -87,13 +86,13 @@ return(<div className='text-center' >
            <label  className='col-sm-2 col-form-label' > <span>Senha. </span>
              <div className='col-sm-10' >  
             <input 
-            type="text"
+            type="password"
             name='password'
             placeholder='Crie uma senha.'
             required
             value={password}
             onChange={ (e) =>    setPassword(e.target.value)}
-            readonly className="form-control-plaintext" 
+            className="form-control-plaintext"
             />
              </div> 
            </label>
@@ -102,13 +101,13 @@ return(<div className='text-center' >
            <div className='mb-3 collumn' >  
            <label className='col-sm-2 col-form-label' > <span> Confirmar senha.</span> 
             <div  className='col-sm-10'> 
-            <input type="text" 
+            <input type="password" 
             name='confirm'
             placeholder='Confirme sua senha, por favor.' 
             required
             value={confirm}
             onChange={(e)=>  setConfirm(e.target.value)}
-            readonly className="form-control-plaintext" 
+            className="form-control-plaintext"
             />
             </div>
            </label>
