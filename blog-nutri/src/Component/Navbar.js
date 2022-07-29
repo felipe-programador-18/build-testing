@@ -2,15 +2,16 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styles from './nav.module.css'
 
+import { useAuth } from '../hoock/useAuthTentication'
 import { useValueAuth } from '../Contextmanage/authcontext'
 
 
 
 const Navbar  = () => {
- 
   const {user} = useValueAuth()
   console.log('what have here', user)
- 
+
+  const{logout} = useAuth()
  
  
  return (<div>
@@ -30,12 +31,7 @@ const Navbar  = () => {
        
        <li>
         <NavLink to='/register' className={({isActive}) => (isActive ? styles.active :'') }  >Registrar</NavLink>
-       </li>
-       
-       <li>
-         <NavLink to='/login' >Login</NavLink>
-       </li> 
-       
+       </li>  
 
        </>
        
@@ -61,7 +57,7 @@ const Navbar  = () => {
        
        {user && ( <> 
         <li>
-         <button >Sair</button>
+         <button onClick={logout} >Sair</button>
        </li>
        </> )}
       
