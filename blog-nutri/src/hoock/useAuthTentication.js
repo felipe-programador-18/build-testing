@@ -14,7 +14,7 @@ export const useAuth  = () => {
    
    const [loading, setLoading]= useState(null)
    const [error, setError] = useState(null)
-   const [cancelled, setCalled] = useState(null)
+   const [cancelled, setCalled] = useState(false)
    
    const auth = getAuth()
 
@@ -37,7 +37,7 @@ export const useAuth  = () => {
         ) 
          
         await updateProfile(user,{
-            displayName:data.displayName
+            displayName: data.displayName
         }
         )
        
@@ -55,12 +55,19 @@ export const useAuth  = () => {
             systemErrorUser = 'Email- já cadastrado'
         } else {
         systemErrorUser ="Ocorreu um erro, tente mais tarde!"
-      } 
+        } 
 
        setLoading(false)
        setError(systemErrorUser)  
     }
 
+   }
+   
+   //sing out systen
+   const logout = async () => {
+     checkMemoryleak()
+     signOut(auth)
+     console.log("SAIU DO SISTEMA")
    }
 
 
@@ -103,5 +110,5 @@ export const useAuth  = () => {
    },[])
 
 
- return {auth,CreateUser, error, loading, login}
+ return {auth,CreateUser, error, loading,logout, login}
 }
