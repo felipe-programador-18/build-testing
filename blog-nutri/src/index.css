@@ -40,3 +40,8 @@ background-color: #aaa;
   padding: 5px;
   border-radius: 5px;
 }
+
+
+input::placeholder{
+  color: coral;
+ }
