@@ -3,7 +3,7 @@ import { useAuth } from '../hoock/useAuthTentication'
 
 const CreateLogin = () => {
 
-    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setErorr] = useState('')
     const{login,error:authError, loading} = useAuth()  
@@ -11,7 +11,7 @@ const CreateLogin = () => {
   const HandSubmt = async (e) => {
    e.preventDefault()
    const user ={
-    name,
+    email,
     password
    }
    
@@ -33,8 +33,10 @@ const CreateLogin = () => {
     <div className="mb-3">
     <label className="form-label">Email address</label>
     <input type="email" 
-     className="form-control"  
-     onChange={(e) => setName(e.target.value)} />
+     name='email'
+     className="form-control"
+     value={email}  
+     onChange={(e) => setEmail(e.target.value)} />
     
     <div className="form-text">Nunca compartilhe seu e-mail com ninguém.</div>
     </div>
@@ -42,6 +44,7 @@ const CreateLogin = () => {
     <div className="mb-3">
     <label className="form-label">Password</label>
     <input type="password"
+    name='password'
      className="form-control" 
      value={password} 
      onChange={(e) => setPassword(e.target.value)}  />
@@ -50,7 +53,7 @@ const CreateLogin = () => {
     </div>
       
      {!loading  && <button className="btn btn-primary">Entrar</button> }
-     {loading && (<button className='btn btn-primary' > Aguarde ....</button>)} 
+     {loading && (<button className='btn btn-primary' disabled > Aguarde ....</button>)} 
         
      {error && <p> {error}</p> }
 
