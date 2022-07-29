@@ -13,7 +13,7 @@ const Home = () => {
        
         <form onSubmit={HandSubmit} className={styles.search_form} >
          <label>
-            <input type="text"   placeholder='Buscar'  onChange={(e) => setSend(e.target.value)}  />
+            <input type="text"   value={send}  placeholder='Buscar'  onChange={(e) => setSend(e.target.value)}  />
          </label>
 
          <button className='btn btn-dark' >Search</button>
