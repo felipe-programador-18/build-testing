@@ -11,6 +11,7 @@ import CreateLogin from './Login/login';
 import CreatePost from './pages/CreatePost/createpost';
 import Dashboard from './pages/dashbords/dashboards';
 import Home from './pages/Home/Home';
+import SearchDeates from './pages/Search/search';
 import Sobre from './pages/Sobre/sobre';
 import RegisterUser from './Register/registerUser';
 
@@ -44,7 +45,7 @@ function App() {
           <Route path='/about' element={<Sobre/>} />
           <Route path="/dashboard" element={<Dashboard/>}  />
           
-          <Route path='' element={''}  />
+          <Route path='/search' element={<SearchDeates/> }  />
            
           <Route path='/login' element={ !user ?  <CreateLogin/> : <Navigate to='/' /> }  />
           
