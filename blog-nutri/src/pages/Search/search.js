@@ -1,21 +1,20 @@
 import { Link } from 'react-router-dom'
-
-import { useSearchParams } from 'react-router-dom'
 import React from 'react'
 import { useFethingDocuments } from '../../hoock/useFecthingdates'
+import { useQuery } from '../../hoock/useQuery'
 
 import DetalsPost from '../../Component/Post.details'
 
 const SearchDeates = () => {
    
-    const query = useSearchParams()
-    const search = query.get('q')
+    const query = useQuery()
+    const search = query.get("q")
 
     const {document:post} = useFethingDocuments('posts', search)
-   
+    console.log('what have here search ?', post)
 
 
-    return(<div className='d-flex justify-content-center align-items-center' >
+    return(<div className='justify-content-center align-items-center' >
            
         <h1>Verify Search!</h1>
           
