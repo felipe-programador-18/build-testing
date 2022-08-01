@@ -1,12 +1,10 @@
 
 .home{
-    text-align: center;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
 }
-
 
 .search_form {
     max-width: 100%;
@@ -28,4 +26,10 @@ text-align: center;
 }
 .nopost  p {
   margin-bottom: 1.5em;
+}
+
+
+.home img {
+    height: 400px;
+    width: 400px;
 }
