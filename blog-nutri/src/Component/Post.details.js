@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom"
 
-const DetalsPost = ({post}) => {
-
+const DetalsPost = ({posts}) => {
+    console.log("testing here", posts)
     return(<div className="d-flex justify-content-center align-items-center" >
         <div>
-            <p>{post.title}</p>
+            <p>{posts.title} - {posts.createdBy} </p>
         </div>
+
+        {posts && posts.tags.map((tag) => (<p key={tag} >
+            <span> {tag.tag} </span> 
+        </p>))}
         
          
-         <Link className="btn bg-danger" >Ler.</Link>
+         <Link   to={`/post/${posts.id}`} className="btn bg-danger" >Ler.</Link>
 
     </div>)
 
