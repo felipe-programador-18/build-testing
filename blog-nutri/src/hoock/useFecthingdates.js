@@ -25,7 +25,12 @@ export const useFethingDocuments=(docCollection, search=null, uid= null) =>{
           let q ; 
           q = query (docReffered)  
           
-          
+          if(search){
+            q= query(docReffered ,where("tags","array-contains", search), orderBy("createdAT","desc"))
+            console.log('what have here, IF',search)
+          } else if(uid){
+            q= query(docReffered ,where("uid" ,"==",uid), orderBy("createdAT","desc"))
+          }
 
           
       
