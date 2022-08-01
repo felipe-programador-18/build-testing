@@ -2,28 +2,26 @@ import { useState, useEffect } from "react"
 import { UseInsertDocument } from "../../hoock/useInsertDocument"
 
 import {useNavigate } from 'react-router-dom'
-import { useAuth } from "../../hoock/useAuthTentication"
 
+import { useValueAuth } from "../../Contextmanage/authcontext"
 
-
+ 
 const CreatePost = () => {
     const[title, setTitle] = useState('')
     const [image, setImage] = useState('')
     const [body, setBody] = useState('')
     const[tags, setTags] = useState([])
-    
-    const{user} = useAuth()
-    console.log('user aqui', user)
+    const [errorform,setErrorFor] = useState('')
+   
+    const{user} = useValueAuth()
+    //const {error:authError,  loading} = useAuth()
+
 
     const navigate = useNavigate()
 
    
     const {InsertDocument,response} = UseInsertDocument("posts")
-    console.log('what is my response here', response)
-
-    const [errorform,setErrorFor] = useState('')
-     
-    
+   
     const HandSubmit = (e) => {
      e.preventDefault()
      setErrorFor("")
@@ -33,13 +31,13 @@ const CreatePost = () => {
       if(!title || !body || !body || !tags){
        setErrorFor("Por favor preencha todos os campos!")
       }
-      setTags(tagsArrays)
 
      try{
        new URL(image)
      } catch (error) {
       setErrorFor("A imagem precisa ser uma url")
      }
+     if(errorform) return;
 
      InsertDocument({
       title,
@@ -114,9 +112,15 @@ const CreatePost = () => {
               onChange={(e) => setTags(e.target.value)}
               />
              </div>
-               
-               <button className="btn btn-dark" >Carregando..</button>
-               <button className="btn btn-danger"> Aguarde.. </button>
+
+            {!response.loading &&  <button className="btn btn-dark" >Cadastrar</button> } 
+
+            {response.loading && ( <button className="btn btn-danger"> Aguarde.. </button> ) }
+
+
+            {response.error && <p> {response.error} </p> }    
+            {errorform && <p>{errorform} </p>  }   
+            
 
              </form>
 
