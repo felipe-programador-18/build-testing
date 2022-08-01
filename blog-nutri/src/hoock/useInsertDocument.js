@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from 'react'
+import  { useState, useEffect, useReducer } from 'react'
 import { db } from '../Managefirebase/firebase'
 import { collection, addDoc, Timestamp } from 'firebase/firestore'
 
@@ -30,29 +30,29 @@ export const UseInsertDocument =  (docCollection) => {
     
     const [cancelled, setCalled] = useState(false)
 
-    function checkMemoryleak(action){
-        if(cancelled){
+    const checkBeforeleak = (action) => {
+        if(!cancelled){
          dispatch(action);
         }
     } 
   
      
     const InsertDocument = async(document) => {
-        checkMemoryleak({
+        checkBeforeleak({
             type:'LOADING'
         }) 
        try {
-        const InserteddDoc = ({...document, createdAT: Timestamp()})
+        const newDoc = {...document, createdAT: Timestamp.now()}
         
-        const AddDate = await addDoc(collection(db,docCollection), InserteddDoc)
+        const AddDate = await addDoc(collection(db,docCollection), newDoc)
 
-        checkMemoryleak({
+        checkBeforeleak({
             type:"INSERT_DOC",
             payload: AddDate
         })
         
        } catch (error) {
-         checkMemoryleak({
+        checkBeforeleak({
             type:"ERROR",
             payload: error.message
          })
