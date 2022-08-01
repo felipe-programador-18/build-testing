@@ -1,13 +1,23 @@
 import React,{useState, useEffect} from 'react'
 import { useAuth } from '../hoock/useAuthTentication'
 
+import { createAuthWithGoo } from '../Managefirebase/firebase'
+
+
 const CreateLogin = () => {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setErorr] = useState('')
-    const{login,error:authError, loading} = useAuth()  
-    
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setErorr] = useState('')
+  const{login,error:authError, loading} = useAuth()  
+  
+  const loginGoogle = async () => {
+    const response = await createAuthWithGoo()
+    console.log('create another way of do login', response)
+  }
+
+
+
   const HandSubmt = async (e) => {
    e.preventDefault()
    const user ={
@@ -53,6 +63,9 @@ const CreateLogin = () => {
     </div>
       
      {!loading  && <button className="btn btn-primary">Entrar</button> }
+     
+     {!loading && <button className='mx-2  btn bg-warning' onClick={loginGoogle} >Entrar com google </button> }
+
      {loading && (<button className='btn btn-primary' disabled > Aguarde ....</button>)} 
         
      {error && <p> {error}</p> }
