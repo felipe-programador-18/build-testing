@@ -45,3 +45,9 @@ background-color: #aaa;
 input::placeholder{
   color: coral;
  }
+
+
+ img{
+  width: 400px;
+  height: 400px;
+ }

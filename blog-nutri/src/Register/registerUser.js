@@ -46,7 +46,7 @@ return(<div className='text-center' >
           <form onSubmit={HandSubmit}>
            
            <div className='mb-3 collumn text-center' >  
-           <label  className='col-sm-2 col-form-label bg-primary' > 
+           <label  className='col-sm-2 col-form-label' > 
             <div className='col-sm-10' >
               <span>  Nome. </span> 
               <input type="text"

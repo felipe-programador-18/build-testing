@@ -11,6 +11,7 @@ import CreateLogin from './Login/login';
 import CreatePost from './pages/CreatePost/createpost';
 import Dashboard from './pages/dashbords/dashboards';
 import Home from './pages/Home/Home';
+import PostSeparete from './pages/post/post';
 import SearchDeates from './pages/Search/search';
 import Sobre from './pages/Sobre/sobre';
 import RegisterUser from './Register/registerUser';
@@ -55,6 +56,8 @@ function App() {
           
           
           <Route path='/post/create'  element={ user ? <CreatePost/> : <Navigate to='/login' />   }  />
+          
+          <Route  path='/post/:id' element={<PostSeparete/>} />
           
           <Route/>
         
