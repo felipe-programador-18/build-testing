@@ -34,7 +34,7 @@ const Dashboard = () => {
         
         <div className="btn-group mx-4 my-2 " role="group">
         <Link to={`/post/${posts.id}`} className='btn btn-outline-success active' >Ver</Link>
-        <Link to={''}  className='btn btn-outline-danger active' >Editar</Link>
+        <Link to={`/post/edit/${posts.id}`}  className='btn btn-outline-danger active' >Editar</Link>
          
         <Link to={''} className='btn btn-outline-warning active' >Excluir</Link> 
        </div>
