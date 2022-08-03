@@ -11,7 +11,6 @@ const Home = () => {
     
     const navigate = useNavigate()
     const{document:post, loading} = useFethingDocuments("posts")
-    console.log('this is null', post)
     
     const HandSubmit = (e) => {
         e.preventDefault("")
@@ -40,7 +39,9 @@ const Home = () => {
          {post && post.map((posts) =><DetalsPost key={posts.id} posts={posts} /> 
          )}
         
-        {!post && <p className='text-center bg-primary' > Nenhum post aqui ainda ....</p>  }  
+        {post &&  post.length === 0 && ( <div>    <h1 className='text-center' > Nenhum post aqui ainda ....</h1>
+        <Link to={'/post/create'} className='btn lean' >Crie seu Primeiro post.</Link>
+        </div>) }  
     
     
        
