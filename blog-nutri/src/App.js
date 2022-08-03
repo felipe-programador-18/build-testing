@@ -10,6 +10,7 @@ import { useAuth } from './hoock/useAuthTentication';
 import CreateLogin from './Login/login';
 import CreatePost from './pages/CreatePost/createpost';
 import Dashboard from './pages/dashbords/dashboards';
+import EditPost from './pages/Editpost/Edit';
 import Home from './pages/Home/Home';
 import PostSeparete from './pages/post/post';
 import SearchDeates from './pages/Search/search';
@@ -59,7 +60,7 @@ function App() {
           
           <Route  path='/post/:id' element={<PostSeparete/>} />
           
-          <Route/>
+          <Route path='/post/edit/:id' element={ user ? <EditPost/>: <Navigate to='/login' /> } />
         
         
         </Routes>
