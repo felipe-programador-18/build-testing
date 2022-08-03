@@ -3,13 +3,18 @@ import React from 'react'
 import { useFethingDocuments } from '../../hoock/useFecthingdates'
 import { useValueAuth } from '../../Contextmanage/authcontext'
 import { Link } from 'react-router-dom'
+import { useDeleteDoc } from '../../hoock/useDeleted'
+
 
 const Dashboard = () => {
+  const {DeletedId} = useDeleteDoc("posts")
+  
   const{user} = useValueAuth()
- // const uid = user.uid
-  console.log('user',user)
-  const {document:post, loading} = useFethingDocuments("posts", null)
-   
+   const uid = user.uid
+  console.log('USER',user)
+ 
+  const {document:post, loading} = useFethingDocuments('posts', null,uid)
+
   console.log('documents here', post)
   
    
@@ -27,8 +32,10 @@ const Dashboard = () => {
 
    {post && post.lenght === 0 ? (<div >
      <p>Nenhum post here</p>
-     <Link className='lead' to='/post/create' >Crie seu primeiro post</Link>
-   </div>) : (<div className=''>
+     <Link className='lead' to={'/post/create' }>Crie seu primeiro post</Link>
+   </div>) : 
+   
+    (<div className='text-center'>
       {post && post.map((posts) => ( <div key={posts.id}> 
        {posts.title}
         
@@ -36,7 +43,8 @@ const Dashboard = () => {
         <Link to={`/post/${posts.id}`} className='btn btn-outline-success active' >Ver</Link>
         <Link to={`/post/edit/${posts.id}`}  className='btn btn-outline-danger active' >Editar</Link>
          
-        <Link to={''} className='btn btn-outline-warning active' >Excluir</Link> 
+        <button className='btn btn-outline-warning active'  onClick={() => DeletedId(posts.id) }  >Excluir</button> 
+       
        </div>
       
       </div> ))}
