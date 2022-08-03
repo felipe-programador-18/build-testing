@@ -32,7 +32,7 @@ function App() {
   }, [auth])
 
   if(loadeduser){
-    <p>Loading.....</p>
+    return <p>Loading.....</p>
   } 
   
   
@@ -61,6 +61,8 @@ function App() {
           <Route  path='/post/:id' element={<PostSeparete/>} />
           
           <Route path='/post/edit/:id' element={ user ? <EditPost/>: <Navigate to='/login' /> } />
+
+         
         
         
         </Routes>
