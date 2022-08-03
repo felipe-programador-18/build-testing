@@ -1,6 +1,10 @@
 import { db } from "../Managefirebase/firebase";
 import { useState, useEffect } from "react";
-import { query,orderBy,collection,getDocs, where } from 'firebase/firestore'
+import { query,
+  orderBy,
+  collection,
+  getDocs,
+  where } from 'firebase/firestore'
 
 
 
