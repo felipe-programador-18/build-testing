@@ -128,8 +128,11 @@ const EditPost = () => {
               />
              </div>
                 
-                <button className='btn  bg-primary  lead ' >Editar post.</button>
-           
+              {response.loading &&  <button className='btn btn-primary lead' > Aguarde...  </button> }  
+               
+               {! response.loading && <button className='btn  bg-primary  lead ' >Editar post.</button> }
+              
+              {errorform &&  <p> {errorform} </p> }
 
              </form>
         
