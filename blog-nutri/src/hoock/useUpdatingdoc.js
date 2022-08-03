@@ -32,7 +32,7 @@ export const useUpdateDate = (docCollection) => {
         }
       } 
 
-        const UpdateMyDoc = async (data, id) => {
+        const UpdateMyDoc = async (id,data) => {
             Controllmemoryleak({
                 type:'LOADING'
             })
