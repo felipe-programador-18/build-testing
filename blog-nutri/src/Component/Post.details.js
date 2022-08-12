@@ -13,13 +13,20 @@ const DetalsPost = ({posts}) => {
         <div className={styles.sizecard} >
         <p className="badge float-start"> Feed</p>
         
-        <h2 className="text-break" >{posts.title}</h2>
-        <h5 className="text-break fst-italic" > {posts.body} </h5>
-        <p >{posts.createdBy}</p>
-     
-        <Link to={`/post/meuspost`} >  <BsXSquareFill/> </Link>
+        <BsXSquareFill className="float-end m-2" />
 
-        <button className="btn"  >Excluir
+        <p className="text-break" >{posts.title}</p>
+       
+        <h6 className="text-break fst-italic" > {posts.body} </h6>
+      
+        <p> Criado por: {posts.createdBy}</p>
+     
+        <Link to={`/post/meuspost`} >  <BsXSquareFill/>
+      
+         </Link>
+
+        <button className="btn float-end mx-4 "  >
+        <BsXSquareFill/>
         </button>
 
         
