@@ -21,7 +21,9 @@ const PostSeparete = () => {
 
            
 
-            { post.tags.map((tag) => ( <p className='text-danger' key={tag}><span>{tag} </span> </p> ))}
+            { /* { post.tags.map((tag) => ( <p className='text-danger' key={tag}><span>{tag} </span> </p> ))}
+            
+            */ }
            <Link to='/'  className='btn bg-dark text-light' >Voltar para home.</Link>
          </>)}
 
