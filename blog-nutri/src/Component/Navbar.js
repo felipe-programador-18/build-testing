@@ -14,9 +14,9 @@ const Navbar  = () => {
   const{logout} = useAuth()
  
  
- return (<div>
+ return (<div className='' >
    <nav className={styles.navbar}>
-     <NavLink className={styles.brand}  to='/' > <span> FirmeSaúde</span> </NavLink>  
+     <NavLink className={styles.brand}  to='/' > <span> BuildBox</span> </NavLink>  
     
     <ul className={styles.links_list} >
        <li>
@@ -41,18 +41,14 @@ const Navbar  = () => {
       {user && (<>  
       
         <li>
-        <NavLink to='/post/create' className={({isActive}) => (isActive ? styles.active: '')}  >Novo Post</NavLink>
+        <NavLink to='/post/meuspost' className={({isActive}) => (isActive ? styles.active: '')}  >Post Salvos</NavLink>
        </li>
         
-       <li>
-        <NavLink to='/dashboard' className={({isActive}) => (isActive ? styles.active: '')}   >Dashboard</NavLink>
-       </li>
+      
       
         </> ) }
       
-       <li>
-        <NavLink to='/about' className={({isActive}) => (isActive ? styles.active: '')} >Sobre</NavLink>
-       </li>
+       
      
        
        {user && ( <> 
