@@ -3,15 +3,14 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 
-import Footer from './Component/Footer';
 import Navbar from './Component/Navbar';
 import { AuthProviderContext } from './Contextmanage/authcontext';
 import { useAuth } from './hoock/useAuthTentication';
 import CreateLogin from './Login/login';
-import CreatePost from './pages/CreatePost/createpost';
 import Dashboard from './pages/dashbords/dashboards';
 import EditPost from './pages/Editpost/Edit';
 import Home from './pages/Home/Home';
+import ManagePost from './pages/MeusPost/SavePost';
 import PostSeparete from './pages/post/post';
 import SearchDeates from './pages/Search/search';
 import Sobre from './pages/Sobre/sobre';
@@ -22,6 +21,7 @@ function App() {
   const[user, setUsers] = useState(undefined)
   const{auth} = useAuth()
    
+  console.log("testing user", user)
   const loadeduser = user === undefined
   console.log('test users here',user)
   
@@ -56,7 +56,7 @@ function App() {
           <Route path="/dashboard" element={ user ?  <Dashboard/> : <Navigate to='/' />}  />
           
           
-          <Route path='/post/create'  element={ user ? <CreatePost/> : <Navigate to='/login' />   }  />
+          <Route path='/post/meuspost'  element={ user ? <ManagePost/> : <Navigate to='/login' />   }  />
           
           <Route  path='/post/:id' element={<PostSeparete/>} />
           
@@ -68,7 +68,7 @@ function App() {
         </Routes>
 
         </div>
-        <Footer/>
+
     
      </BrowserRouter>
 
