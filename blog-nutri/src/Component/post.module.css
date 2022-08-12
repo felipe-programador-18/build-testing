@@ -1,5 +1,6 @@
 .sizecard{
     width: 700px;
-    height: 400px;
+    height: 300px;
     background-color: rgb(100, 100, 100);
+    margin: 20px;
 }
