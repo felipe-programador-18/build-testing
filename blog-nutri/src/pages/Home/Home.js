@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './home.module.css'
-import './bi.jpg'
+
 import { useFethingDocuments } from '../../hoock/useFecthingdates'
 import { Link, useNavigate } from 'react-router-dom'
 import DetalsPost from '../../Component/Post.details'
