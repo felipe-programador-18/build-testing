@@ -1,13 +1,14 @@
 import React, {  useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import styles from './home.module.css'
 
 import DetalsPost from '../../Component/Post.details'
 
 import { useFethingDocuments } from '../../hoock/useFecthingdates'
-import { Link, useNavigate } from 'react-router-dom'
 import { useValueAuth } from "../../Contextmanage/authcontext"
 import { UseInsertDocument } from "../../hoock/useInsertDocument"
 
+import { createAuthWithGoo } from '../../Managefirebase/firebase'
 
 
 const Home = () => {
@@ -19,11 +20,15 @@ const Home = () => {
 
     const navigate = useNavigate()
     const{document:post, loading} = useFethingDocuments("posts")
-    
-
-
+  
     const {InsertDocument,response} = UseInsertDocument("posts")
-    
+  
+    const loginGoogle = async () => {
+      const response = await createAuthWithGoo()
+      console.log('create another way of do login', response)
+    }
+
+
     const HandSubmit = (e) => {
       e.preventDefault("")
       setErrorFor("")
@@ -86,8 +91,9 @@ const Home = () => {
           <button className='btn btn-dark my-4 mx-2 float-end' >Publicar</button> }
           
           {response.loading && (<button className='btn btn-dark my-4 mx-2 float-end' >Carregando...</button> )}
-        
-        
+
+          {!response.loading &&  <button className='btn btn-success m-2 my-4 ' onClick={loginGoogle} >Entre com google.</button>  } 
+
          </div>  
         
          
@@ -100,6 +106,9 @@ const Home = () => {
           </div>) } 
         
           <DetalsPost/>   
+     
+     
+     
      </form> 
     
     </div>  )
