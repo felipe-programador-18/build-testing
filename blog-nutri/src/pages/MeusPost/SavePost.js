@@ -24,8 +24,8 @@ const ManagePost = () => {
       <Link to={'/post/create'} className='btn lean' >Crie seu Primeiro post.</Link>
      </div>
       )} 
-
-       <DetalsPost/>    
+       
+    <DetalsPost/>    
       
   </div> 
  
