@@ -1,6 +1,9 @@
-
-.container {
-  min-height: 60vh;
-  margin-bottom: 5em;
-  text-align: center;
+.App{
+background-color: rgb(47, 52, 52);
+width: 100%;
+height: 100%;
 }
+
+
+
+
