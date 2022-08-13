@@ -1,16 +1,8 @@
 
-.home{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
- 
-}
 
 .size{
     margin: 100px;
     width: 700px;
     height: 400px;
-    background-color: rgba(46, 50, 48,0.5);
+    background-color: rgba(46, 50, 48,0.9);
 }
