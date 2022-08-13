@@ -5,8 +5,6 @@ import styles from './nav.module.css'
 import { useAuth } from '../hoock/useAuthTentication'
 import { useValueAuth } from '../Contextmanage/authcontext'
 
-
-
 const Navbar  = () => {
   const {user} = useValueAuth()
   console.log('what have here', user)
@@ -21,41 +19,15 @@ const Navbar  = () => {
        <li>
         <NavLink to='/' className={({isActive}) => (isActive ? styles.active : "" ) }>Home</NavLink>
        </li>
-      
-      {!user && ( <> 
-       <li>
-        <NavLink to='/login' className={({isActive}) => (isActive ? styles.active : '')}  > Entrar</NavLink>
-       </li>
-       
-       
-       <li>
-        <NavLink to='/register' className={({isActive}) => (isActive ? styles.active :'') }  >Registrar</NavLink>
-       </li>  
-
-       </>
-       
-       )}
-          
+  
 
       {user && (<>  
-      
         <li>
-        <NavLink to='/post/meuspost' className={({isActive}) => (isActive ? styles.active: '')}  >Post Salvos</NavLink>
-       </li>
-
-       <li>
-       <NavLink to='/dashboard' className={({isActive}) => (isActive ? styles.active: '' )} >  
-      das
-       </NavLink>
-       </li>
-        
-      
-      
-        </> ) }
-      
-       
-     
-       
+         <NavLink to='/post/meuspost' className={({isActive}) => (isActive ? styles.active: '')}  >Post Salvos</     NavLink>
+        </li>
+        </> 
+      )}
+  
        {user && ( <> 
         <li>
          <button onClick={logout} >Sair</button>
