@@ -10,11 +10,10 @@ import { useValueAuth } from '../Contextmanage/authcontext'
 const Navbar  = () => {
   const {user} = useValueAuth()
   console.log('what have here', user)
-
   const{logout} = useAuth()
  
  
- return (<div className='' >
+ return (<div>
    <nav className={styles.navbar}>
      <NavLink className={styles.brand}  to='/' > <span> BuildBox</span> </NavLink>  
     
@@ -42,6 +41,12 @@ const Navbar  = () => {
       
         <li>
         <NavLink to='/post/meuspost' className={({isActive}) => (isActive ? styles.active: '')}  >Post Salvos</NavLink>
+       </li>
+
+       <li>
+       <NavLink to='/dashboard' className={({isActive}) => (isActive ? styles.active: '' )} >  
+      das
+       </NavLink>
        </li>
         
       
