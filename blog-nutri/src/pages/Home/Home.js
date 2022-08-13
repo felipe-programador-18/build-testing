@@ -1,5 +1,5 @@
 import React, {  useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styles from './home.module.css'
 
 import DetalsPost from '../../Component/Post.details'
@@ -32,51 +32,42 @@ const Home = () => {
     const HandSubmit = (e) => {
       e.preventDefault("")
       setErrorFor("")
-      
-      if(!title || !body ){
+
+     if(!title || !body ){
         setErrorFor("Por favor preencha todos os campos!")
        }
      
-    if(errorform) return;
- 
+     if(errorform) return;
       InsertDocument({
        title,
        body,
-       uid:user.uid,
+      
        createdBy: user.displayName
-      })
-     
-        
-      navigate("/post/meuspost")
-
+      })    
+     navigate("/")
        
     }
 
-
-   
- 
-    //className='d-flex d-column align-items-center justify-content-center'
 
   return( <div className='d-flex d-column align-items-center justify-content-center container-xl' >
 
         <form onSubmit={HandSubmit} >  
         <div className={styles.size}>
-         <h2 className='text-success text-center' >BuildBox</h2>
+        <h2 className=' text-center' >BuildBox</h2>
+         
+        <div className="mb-3 mx-2">
         
-          <div className="mb-3 mx-2">
-           
-
-          <input type="text" 
+        <input type="text" 
           className="form-control bg-light opacity-25 text-bold "
           name='title'
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Digite seu Nome."/>
           
-          </div>
-          <div className="mb-b mx-2">
+        </div>
+        <div className="mb-b mx-2">
         
-          <textarea 
+        <textarea 
            className="form-control bg-light opacity-25"  id="exampleFormControlTextarea1"
            name='body'
            value={body}
@@ -84,33 +75,29 @@ const Home = () => {
            rows="3" 
            placeholder="Mensagem."></textarea>
           
-          </div>
+        </div>
 
           
-          {!response.loading &&
-          <button className='btn btn-dark my-4 mx-2 float-end' >Publicar</button> }
+        {!response.loading &&
+        <button className='btn btn-dark my-4 mx-2 float-end'>Publicar</button> }
           
-          {response.loading && (<button className='btn btn-dark my-4 mx-2 float-end' >Carregando...</button> )}
+        {response.loading && (<button className='btn btn-dark my-4 mx-2 float-end' >Carregando...</button> )}
 
-          {!response.loading &&  <button className='btn btn-success m-2 my-4 ' onClick={loginGoogle} >Entre com google.</button>  } 
+        {!response.loading &&  <button className='btn btn-success m-2 my-4 ' onClick={loginGoogle} >Entre com google.</button>  } 
 
-         </div>  
+        </div>  
         
          
-         {errorform && <p>{errorform}</p> }
-         {loading && <p>carregando posts ..... </p> }
+        {errorform && <p>{errorform}</p> }
+        {loading && <p>carregando posts ..... </p> }
     
+        {post &&  post.length === 0 && ( <div>    <h1 className='text-center' > Nenhum post aqui ainda ....</h1>
+        </div>
+        )} 
         
-         {post &&  post.length === 0 && ( <div>    <h1 className='text-center' > Nenhum post aqui ainda ....</h1>
-         <Link to={'/post/create'} className='btn lean' >Crie seu Primeiro post.</Link>
-          </div>) } 
-        
-          <DetalsPost/>   
-     
-     
+        <DetalsPost/>   
      
      </form> 
-    
     </div>  )
 }
 

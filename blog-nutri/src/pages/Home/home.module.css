@@ -1,8 +1,10 @@
-
-
 .size{
     margin: 100px;
     width: 700px;
     height: 400px;
     background-color: rgba(46, 50, 48,0.9);
+}
+
+h2{
+ color: rgb(137, 236, 8);
 }

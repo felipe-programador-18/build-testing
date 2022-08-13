@@ -1,7 +1,7 @@
 
 .navbar{
-    display: flex;
-    background-color: #2c2a2a;
+    text-align: center;
+    background-color: #3e3e3e;
     justify-content: space-between;
     align-items: center;
     padding: .5em 2em;
@@ -12,29 +12,14 @@
     z-index: 1;
 }
 
+li{
+  list-style: none;
+}
 .brand{
     font-size: 1.em ;
     text-decoration: none;
+    color: rgb(137, 236, 8);
 }
 
-.brand span {
-    font-weight: 900px;
-    text-transform: uppercase;
-}
 
-.links_list {
-    display: flex;
-    list-style: none;
-    
-}
-
-.links_list{
-    margin-right: 1em; 
-    margin: 10px;  
-}
-
-.links_list li a {
-    padding: .4em .6em;
-    text-decoration: none;
-}
 

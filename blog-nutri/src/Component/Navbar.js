@@ -7,30 +7,18 @@ import { useValueAuth } from '../Contextmanage/authcontext'
 
 const Navbar  = () => {
   const {user} = useValueAuth()
-  console.log('what have here', user)
   const{logout} = useAuth()
- 
  
  return (<div>
    <nav className={styles.navbar}>
-     <NavLink className={styles.brand}  to='/' > <span> BuildBox</span> </NavLink>  
     
+     <NavLink className={styles.brand}  to='/' > 
+     <span className='fw-bold' >BuildBox.</span>
+     </NavLink>  
     <ul className={styles.links_list} >
-       <li>
-        <NavLink to='/' className={({isActive}) => (isActive ? styles.active : "" ) }>Home</NavLink>
-       </li>
-  
-
-      {user && (<>  
-        <li>
-         <NavLink to='/post/meuspost' className={({isActive}) => (isActive ? styles.active: '')}  >Post Salvos</     NavLink>
-        </li>
-        </> 
-      )}
-  
        {user && ( <> 
         <li>
-         <button onClick={logout} >Sair</button>
+         <button className='float-end' onClick={logout} >Sair</button>
        </li>
        </> )}
       
