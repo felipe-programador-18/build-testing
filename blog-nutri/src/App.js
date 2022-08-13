@@ -7,13 +7,9 @@ import Navbar from './Component/Navbar';
 import { AuthProviderContext } from './Contextmanage/authcontext';
 import { useAuth } from './hoock/useAuthTentication';
 import CreateLogin from './Login/login';
-import Dashboard from './pages/dashbords/dashboards';
-import EditPost from './pages/Editpost/Edit';
+
 import Home from './pages/Home/Home';
 import ManagePost from './pages/MeusPost/SavePost';
-import PostSeparete from './pages/post/post';
-import SearchDeates from './pages/Search/search';
-import Sobre from './pages/Sobre/sobre';
 import RegisterUser from './Register/registerUser';
 
 
@@ -43,33 +39,17 @@ function App() {
       <Navbar/>
       <div className='container' >
         <Routes>
-          <Route  path='/' element={<Home/>} />
-          <Route path='/about' element={<Sobre/>} />
-          <Route path="/dashboard" element={<Dashboard/>}  />
-          
-          <Route path='/search' element={<SearchDeates/> }  />
-           
+          <Route  path='/' element={<Home/>} /> 
           <Route path='/login' element={ !user ?  <CreateLogin/> : <Navigate to='/' /> }  />
           
           <Route path='/register' element={!user ?  <RegisterUser/> : <Navigate to='/'  /> } />
           
-          <Route path="/dashboard" element={ user ?  <Dashboard/> : <Navigate to='/' />}  />
-          
-          
           <Route path='/post/meuspost'  element={ user ? <ManagePost/> : <Navigate to='/login' />   }  />
-          
-          <Route  path='/post/:id' element={<PostSeparete/>} />
-          
-          <Route path='/post/edit/:id' element={ user ? <EditPost/>: <Navigate to='/login' /> } />
-
-         
-        
-        
+               
         </Routes>
 
         </div>
 
-    
      </BrowserRouter>
 
     </AuthProviderContext> 
