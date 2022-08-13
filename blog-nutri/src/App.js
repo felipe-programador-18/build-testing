@@ -5,12 +5,10 @@ import './App.css';
 
 import Navbar from './Component/Navbar';
 import { AuthProviderContext } from './Contextmanage/authcontext';
-import { useAuth } from './hoock/useAuthTentication';
-import CreateLogin from './Login/login';
 
+import { useAuth } from './hoock/useAuthTentication';
 import Home from './pages/Home/Home';
 import ManagePost from './pages/MeusPost/SavePost';
-import RegisterUser from './Register/registerUser';
 
 
 function App() {
@@ -30,25 +28,20 @@ function App() {
   if(loadeduser){
     return <p>Loading.....</p>
   } 
-  
-  
+    
   return (
     <div className="App">
     <AuthProviderContext value={{user}} >
+      
       <BrowserRouter>
-      <Navbar/>
-      <div className='container' >
-        <Routes>
-          <Route  path='/' element={<Home/>} /> 
-          <Route path='/login' element={ !user ?  <CreateLogin/> : <Navigate to='/' /> }  />
-          
-          <Route path='/register' element={!user ?  <RegisterUser/> : <Navigate to='/'  /> } />
-          
-          <Route path='/post/meuspost'  element={ user ? <ManagePost/> : <Navigate to='/login' />   }  />
-               
-        </Routes>
-
-        </div>
+       <Navbar/>
+       <div className='container' >
+      
+       <Routes>
+         <Route  path='/' element={<Home/>} /> 
+         <Route path='/post/meuspost'  element={ user ? <ManagePost/> : <Navigate to='/login' />   }  />
+       </Routes>
+       </div>
 
      </BrowserRouter>
 
