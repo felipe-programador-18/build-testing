@@ -2,6 +2,9 @@ import React from 'react'
 import { useFethingDocuments } from '../../hoock/useFecthingdates'
 import { Link } from 'react-router-dom'
 import DetalsPost from '../../Component/Post.details'
+import styles from './Save.module.css'
+
+
 
 
 const ManagePost = () => {
@@ -9,7 +12,9 @@ const ManagePost = () => {
 
     console.log("testing here", post)
 
-  return ( <div className='align-items-center'>
+  return ( 
+  <div className={styles.App} >   
+    <div className='align-items-center'>
       Meus Poste!!
       
       {loading && <p>carregando posts ..... </p> }
@@ -19,15 +24,13 @@ const ManagePost = () => {
       <Link to={'/post/create'} className='btn lean' >Crie seu Primeiro post.</Link>
      </div>
       )} 
-       
 
-       {post && post.map((posts) =><DetalsPost key={posts.id} posts={posts} /> 
-         )}
-   
-  </div> )
-
-
-
+       <DetalsPost/>    
+      
+  </div> 
+ 
+ </div> 
+ )
 }
 
 export default ManagePost

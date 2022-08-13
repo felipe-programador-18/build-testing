@@ -1,8 +1,7 @@
 
 .navbar{
     display: flex;
-    box-shadow: rgba(222, 217, 217, 0.15) 0px -2px 10px 0;
-    background-color: #1c1c21;
+    background-color: #2c2a2a;
     justify-content: space-between;
     align-items: center;
     padding: .5em 2em;
@@ -39,7 +38,3 @@
     text-decoration: none;
 }
 
-.active{
-    background-color: #000;
-    color: #fff;
-}
