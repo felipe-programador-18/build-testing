@@ -70,6 +70,6 @@ export const useFethingDocuments=(docCollection, search=null, uid= null) =>{
     return () => setCalled(true)
    },[])
 
-   console.log('here is null', document)
+ 
    return {document, loading, error}
 }

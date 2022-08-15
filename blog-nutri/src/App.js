@@ -17,7 +17,7 @@ function App() {
    
   console.log("testing user", user)
   const loadeduser = user === undefined
-  console.log('test users here',user)
+
   
   useEffect(() => {
     onAuthStateChanged(auth,(user) => {
